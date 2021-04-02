@@ -1,46 +1,50 @@
-import java.util.*;
+import java.util.Scanner;
 public class Armstrong {
-
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Scanner sc= new Scanner(System.in);
-		int i,h,l;
-		System.out.println("Enter the lower bound");
-		l=sc.nextInt();
-		System.out.println("Enter the higher bound");
-		h=sc.nextInt();
-		for(i=l;i<=h;i++)
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the number you want to check:");
+		int n=sc.nextInt();
+		boolean rs= isArmstrong(n);
+		if(rs==true)
 		{
-			int t=i,c=0;
-			while(t>0)
-			{
-				c++;
-				t=t/10;
-			}
-			//System.out.println(c);
-			int n=i,r,s=0,f=1;
-			int a=c;
-			while(n>0)
-			{
-				r=n%10;
-				while(a>0)
-				{
-					f=f*r;
-					a--;
-					//System.out.println(f);
-				}
-				s=s+f;
-				f=1;
-				n=n/10;
-				a=c;
-			}
-			if(s==i)
-			{
-				System.out.println(s);
-			}
-			s=0;
+			System.out.println(n+" Armstrong number");
 		}
-		
+		else
+		{
+			System.out.println(n+" Not a Armstrong number");
+		}
+	}
+	static boolean isArmstrong(int n)
+	{
+		int cd=countDigit(n),t=n;
+		int s=0;
+		while(n!=0)
+		{
+			int r=n%10;
+			s=s+pow(r,cd);
+			n=n/10;
+		}
+		return s==t;
+	}
+	static int countDigit(int r)
+	{
+		int c=0;
+		while(r!=0)
+		{
+			c++;
+			r=r/10;
+		}
+		return c;
+	}
+	static int pow(int r,int dc)
+	{
+		int pw=1;
+		while(dc>0)
+		{
+			pw=pw*r;
+			dc--;
+		}
+		return pw;
 	}
 
 }
