@@ -2,13 +2,8 @@
 public class Test1 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Icombo s= new FanImpl1();
-		s.switchOff();
-		s.switchOn();
-		s.reduceSpeed();
-		s.increaseSpeed();
-
+		VendingMachine vm = new VendingMachine();
+		Baverage b= vm.pressButton();
+		System.out.println(b);
 	}
-
 }
